@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require("bodyParser");
+const bodyParser = require("body-parser");
 
 const {PORT} = require('./config/serverConfig');
 
