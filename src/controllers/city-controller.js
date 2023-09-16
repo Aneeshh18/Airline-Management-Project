@@ -1,4 +1,4 @@
-const {CityService} = require('../services/city-Service');
+const { CityService } = require('../services/index');
 
 const cityService = new CityService();
 
@@ -8,22 +8,20 @@ const create = async (req, res) => {
         return res.status(201).json({
             data: city,
             success: true,
-            message: 'Successfully created city',
-            error: {}
-        })
-    }catch(error) {
-        console.error(error);
+            message: 'Successfully created a city',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
-            message: 'Error creating city',
-            error: error
-        })
+            message: 'Not able to create a city',
+            err: error
+        });
     }
 }
-
-
-//DELETE -> /city/:id
+// DELETE. -> /city/:id
 const destroy = async (req, res) => {
     try {
         const response = await cityService.deleteCity(req.params.id);
@@ -39,8 +37,8 @@ const destroy = async (req, res) => {
             data: {},
             success: false,
             message: 'Not able to delete the city',
-            error: error
-        })
+            err: error
+        });
     }
 }
 
@@ -52,40 +50,39 @@ const get = async (req, res) => {
             data: response,
             success: true,
             message: 'Successfully fetched a city',
-            error: {}
-        })
-    }catch(error) {
-        console.error(error);
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
             message: 'Not able to get the city',
-            error: error
-        })
+            err: error
+        });
     }
 }
 
-//PATCH -> /city/:id -> req.body
+// Patch -> /city/:id -> req.body
 const update = async (req, res) => {
     try {
         const response = await cityService.updateCity(req.params.id, req.body);
         return res.status(200).json({
             data: response,
             success: true,
-            message: 'Successfully updated the city',
-            error: {}
-        })
-    }catch(error) {
-        console.error(error);
+            message: 'Successfully fetched a city',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
             message: 'Not able to update the city',
-            error: error
-        })
+            err: error
+        });
     }
 }
-
 
 module.exports = {
     create,
