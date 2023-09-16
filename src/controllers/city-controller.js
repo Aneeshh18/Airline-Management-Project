@@ -31,10 +31,10 @@ const destroy = async (req, res) => {
             data: response,
             success: true,
             message: 'Successfully deleted a city',
-            error: {}
-        })
-    }catch(error) {
-        console.error(error);
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
