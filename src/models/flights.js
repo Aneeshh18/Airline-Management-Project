@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Flights.init({
     flightNumber: {
-      type: DataTypes.STRING,
+      type:DataTypes.STRING,
       allowNull: false,
       unique: true
     },
@@ -32,22 +32,22 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     arrivalTime: {
-      type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.DATE
     },
     departureTime: {
-      type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.DATE
     },
-    price:{
+    price: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     boardingGate: DataTypes.STRING,
     totalSeats: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
+    }
   }, {
     sequelize,
     modelName: 'Flights',
